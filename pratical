@@ -1,0 +1,159 @@
+#######################################################################################################################################################
+# 
+# Name:sriram Namburajan    
+# SID:740100023
+# Exam Date:28/03/2025
+# Module:BEMM458
+# Github link for this assignment:  https://classroom.github.com/assignment-invitations/7cec1daa7834d10270aae92ddc2f6f50/status
+#
+# ######################################################################################################################################################
+# Instruction 1. Read the questions and instructions carefully and complete scripts.
+
+# Instruction 2. Only ethical and minimal use of AI is allowed. You might use AI to give advice on how to use a tool or programming language.  
+#                You must not use AI to create the code. You might make use of AI to aid debugging of the code.  
+#                You must indicate clearly how and where you have used AI.
+
+# Instruction 3. Copy the output of the code and insert it as a comment below your code e.g # OUTPUT (23,45)
+
+# Instruction 4. Ensure you provide comments for the code and the output to show contextual understanding.
+
+# Instruction 5. Upon completing this test, commit to Git, copy and paste your code into the word file and upload the saved file to ELE.
+#                There is a leeway on when you need to upload to ELE, however, you must commit to Git at 
+#                the end of your session.
+
+# ######################################################################################################################################################
+# Question 1 - Data Processing and Loops
+# You are given a string representing customer reviews. Use a for loop to process the text and count occurrences of specific keywords.
+# Your allocated keywords are determined by the first and last digit of your SID.
+# Count and store occurrences of each keyword in a dictionary called keyword_counts.
+ 
+customer_reviews = """The product is well-designed and user-friendly. However, I experienced some issues with durability. The customer service was helpful, 
+but I expected a faster response. The quality of the materials used is excellent. Overall, the purchase was satisfactory."""
+
+# Keywords dictionary
+keywords = {
+    0: 'user-friendly',
+    1: 'helpful',
+    2: 'durability',
+    3: 'response',
+    4: 'satisfactory',
+    5: 'quality',
+    6: 'service',
+    7: 'issues',
+    8: 'purchase',
+    9: 'materials'
+}
+
+# Write your code to process the text and count keyword occurrences
+
+# SID is 74010023, first digit = 7, last digit = 3
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+allocated_keywords = [keywords[7], keywords[3]]  # ['issues', 'response']
+keyword_counts = {word: customer_reviews.lower().count(word) for word in allocated_keywords}
+
+print("Keyword Occurrences:", keyword_counts)  # OUTPUT: {'issues': 1, 'response': 1}
+
+##########################################################################################################################################################
+
+# Question 2 - Business Metrics
+# Scenario - You work in an online retail company as a business analyst. Your manager wants weekly reports on financial performance, including:
+# Gross Profit Margin, Inventory Turnover, Customer Retention Rate (CRR), and Break-even Analysis. Implement Python functions 
+# that take relevant values as inputs and return the computed metric. Use the first two and last two digits of your ID number as input values.
+
+# Insert first two digits of ID number here:
+# Insert last two digits of ID number here:
+
+# Write your function for Gross Profit Margin
+
+# Write your function for Inventory Turnover
+
+# Write your function for Customer Retention Rate (CRR)
+
+# Write your function for Break-even Analysis
+
+# Call your functions here
+
+# first and last digit of sid
+SID_first_two = 74
+SID_last_two = 23
+#This function calculates how much profit is made compared to total revenue
+def gross_profit_margin(revenue, cost):
+    return ((revenue - cost) / revenue) * 100
+# inventory turnover function is defines how efficiently inventory is being sold
+def inventory_turnover(cost_of_goods_sold, avg_inventory):
+    return cost_of_goods_sold / avg_inventory
+ # customer_retention_rate function shows how many customers stay with the business over time
+def customer_retention_rate(initial_customers, retained_customers):
+    return (retained_customers / initial_customers) * 100
+# break_even_analysis function determines how many units need to be sold to cover fixed costs
+def break_even_analysis(fixed_costs, selling_price, variable_cost):
+    return fixed_costs / (selling_price - variable_cost)
+# using print function to execute all the functions
+print("Gross Profit Margin:", gross_profit_margin(1000, 400))  # Example values
+print("Inventory Turnover:", inventory_turnover(800, 200))
+print("Customer Retention Rate:", customer_retention_rate(500, 450))
+print("Break-even Analysis:", break_even_analysis(5000, 100, 50))
+
+##########################################################################################################################################################
+
+# Question 3 - Forecasting and Regression
+# A logistics company has gathered data on delivery costs and shipment volumes. The table below provides different costs and their corresponding shipment volumes.
+# Develop a linear regression model and determine:
+# 1. The optimal delivery cost that maximizes profit
+# 2. The expected shipment volume when the cost is set at £68
+
+"""
+Delivery Cost (£)    Shipment Volume (Units)
+-------------------------------------------
+25                  500
+30                  480
+35                  450
+40                  420
+45                  400
+50                  370
+55                  340
+60                  310
+65                  290
+70                  250
+"""
+
+# Write your regression model code here
+
+# importing numpy and linear regression
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+# giving values to the variable x and y to calculate the linear regression
+X = np.array([25, 30, 35, 40, 45, 50, 55, 60, 65, 70]).reshape(-1, 1)
+y = np.array([500, 480, 450, 420, 400, 370, 340, 310, 290, 250])
+
+# Creating a linear regression model
+model = LinearRegression()
+model.fit(X, y)
+
+# Predicting the  shipment volume when delivery cost is £68
+predicted_volume = model.predict([[68]])
+print("Expected shipment volume for £68:", predicted_volume[0])
+
+##########################################################################################################################################################
+
+# Question 4 - Debugging and Data Visualization
+import random
+import matplotlib.pyplot as plt
+
+# Generate 100 random numbers between 1 and student ID number
+max_value = int(input("Enter your Student ID: "))
+random_numbers = [random.randint(1, max_value) for _ in range(100)]
+
+# Plotting the numbers in a line chart
+plt.plot(random_numbers, marker='o', markerfacecolor='green', markeredgecolor='red', linestyle='--', label='Random Numbers', color='blue')
+
+# Adding titles and labels
+plt.title("Line Chart of 100 Random Numbers")
+plt.xlabel("Index")
+plt.ylabel("Random Number")
+plt.legend(["---"])
+plt.grid(True)
+plt.show()
